@@ -14,7 +14,7 @@ import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reporter;
 
 public class MySalesMapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, IntWritable> {
-	Text wordForPaymentType = new Text();
+	Text wordForProduct = new Text();
 
 	@Override
 	// rowNumber // line
@@ -51,9 +51,9 @@ public class MySalesMapper extends MapReduceBase implements Mapper<LongWritable,
 				}
 
 			}
-			wordForPaymentType.set(typeOfProduct);
+			wordForProduct.set(typeOfProduct);
 
-			output.collect(wordForPaymentType, new IntWritable(price));
+			output.collect(wordForProduct, new IntWritable(price));
 		}
 
 	}
